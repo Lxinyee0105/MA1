@@ -226,4 +226,5 @@ loop:false,
     ending (player,tile) {
       console.log("ending function")
       this.scene.start("ending")}
+      
 } //////////// end of class world ////////////////////////

@@ -35,14 +35,14 @@ preload() {
 
 create() {
 
-    this.add.text(10, 10, 'This is preload Scene', { font: '24px Courier', fill: '#FFFF00' });
+    this.add.text(10, 10, 'Scene', { font: '24px Courier', fill: '#FFFF00' });
     this.add.text(10, 34, 'Click or space to continue', { font: '24px Courier', fill: '#FFFF00' });
 
     var spaceDown = this.input.keyboard.addKey('SPACE');
         
     spaceDown.on('down', function(){
-        console.log("world1");
-        this.scene.start("world1");
+        console.log("Jump to rule scene");
+        this.scene.start("rule");
         }, this );
 
     this.anims.create({

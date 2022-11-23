@@ -1,27 +1,31 @@
-class main extends Phaser.Scene {
+class rule extends Phaser.Scene {
 
     constructor() {
         super({
-            key: 'main'
+            key: 'rule'
         });
 
         // Put global variable here
     }
 
-    preload() {
+    // preload() {
 
-        // Preload all the assets here
+    //     // Preload all the assets here
 
-        // Preload any images here
+    //     // Preload any images here
 
-        // Preload any sound and music here
-        // this.load.audio('ping', 'assets/ping.mp3');
-        // this.load.audio('bgMusic', 'assets/bgMusic.mp3');
-    }
+    //     // Preload any sound and music here
+    //     // this.load.audio('ping', 'assets/ping.mp3');
+    //     // this.load.audio('bgMusic', 'assets/bgMusic.mp3');
+    // }
 
     create() {
 
-        console.log('*** main scene');
+        this.add.text(10,10,'howtoplay', {font: '24px Courier',fill:'#FFFF00'});
+        this.add.text(10,34,'Click or space to continue',{font: '24px Courier',fill:'#FFFF00'} );
+         var spaceDown = this.input.keyboard.addKey('SPACE');
+
+        // console.log('*** main scene');
 
         // Add any sound and music here
         // ( 0 = mute to 1 is loudest )
@@ -35,14 +39,14 @@ class main extends Phaser.Scene {
         //this.add.image(0, 0, 'main').setOrigin(0, 0);
 
         // Check for spacebar or any key here
-        var spaceDown = this.input.keyboard.addKey('SPACE');
+      
         // var key1 = this.input.keyboard.addKey(49);
 
         // On spacebar event, call the world scene        
         spaceDown.on('down', function () {
-            console.log('Jump to rule scene');
-ss
-            this.scene.start('rule',
+            console.log('spacebar_next');
+
+            this.scene.start('world1',
                 // Optional parameters
                 {
 
@@ -72,10 +76,10 @@ ss
                 
 
         // Add any text in the main page
-        this.add.text(90, 600, 'Press spacebar to continue', {
-            font: '30px Courier',
-            fill: '#FFFFFF'
-        });
+        // this.add.text(90, 600, 'Press spacebar to continue', {
+        //     font: '30px Courier',
+        //     fill: '#FFFFFF'
+        // });
 
 
         // Create all the game animations here
