@@ -36,6 +36,7 @@ class main extends Phaser.Scene {
 
         // Check for spacebar or any key here
         var spaceDown = this.input.keyboard.addKey('SPACE');
+        // var key1 = this.input.keyboard.addKey(49);
 
         // On spacebar event, call the world scene        
         spaceDown.on('down', function () {
@@ -49,6 +50,26 @@ class main extends Phaser.Scene {
             );
         }, this);
 
+        key1.on('down', function(){
+            this.scene.stop("mainScene");
+            this.scene.start("level1");
+            }, this );
+
+        key2.on('down', function(){
+            this.scene.stop("mainScene");
+            this.scene.start("level2");
+            }, this );
+
+        key3.on('down', function(){
+            this.scene.stop("mainScene");
+            this.scene.start("level3");
+            }, this ); 
+            
+        key4.on('down', function(){
+            this.scene.stop("mainScene");
+            this.scene.start("level4");
+            }, this );
+                
 
         // Add any text in the main page
         this.add.text(90, 600, 'Press spacebar to continue', {

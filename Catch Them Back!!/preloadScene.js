@@ -9,11 +9,18 @@ preload() {
   
     this.load.spritesheet('Raven', 'assets/Raven.png', {frameWidth: 32, frameHeight: 32});
 
-    this.load.image('farming_fishing','farming_fishing.png');
-    this.load.image('forest_tiles','forest_tiles.png');
-    this.load.image('village32x32','village32x32.png');
-    this.load.image("cityImg", "assets/City-01");
+    this.load.image('farming_fishing','assets/farming_fishing.png');
+    this.load.image('forest_tiles','assets/forest_tiles.png');
+    this.load.image('villageimg','assets/village32x32.png');
+    this.load.image("cityImg", "assets/City-01.png");
 
+    this.load.image('dog1','assets/dog.png')
+    this.load.image('dog2','assets/dog2.png')
+    this.load.image('cat1','assets/cat.png')
+    this.load.image('cat2','assets/cat2.png')
+    this.load.image('cow','assets/cow.png')
+    this.load.image('cow2','assets/cow2.png')
+    this.load.spritesheet('enemy','assets/enemy.png',{frameWidth:32,frameHeight: 32})
     // simple coin image
     // this.load.image('coin', 'assets/coinGold.png');
     // this.playeranimations
@@ -33,10 +40,6 @@ create() {
 
     var spaceDown = this.input.keyboard.addKey('SPACE');
         
-    this.input.on('pointerdown', function (pointer) {
-        this.scene.start("world1.js");
-        }, this);
-
     spaceDown.on('down', function(){
         console.log("world1");
         this.scene.start("world1");
@@ -70,7 +73,13 @@ create() {
         repeat: -1,
         });
 
-
+        this.anims.create({
+        key: "enemymove",
+        frames: this.anims.generateFrameNumbers("enemy", { start: 0, end: 1}),
+        frameRate: 5,
+        repeat: -1,
+        });
+          
 }
 
 } // end of class
