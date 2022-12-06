@@ -8,11 +8,21 @@ class preloadScene extends Phaser.Scene {
 preload() {
   
     this.load.spritesheet('Raven', 'assets/Raven.png', {frameWidth: 32, frameHeight: 32});
-
+    this.load.image("mainpage", "assets/mainpage.png");
+    this.load.image("rulepage", "assets/rule-01.png");
+    this.load.image("gameoverpage", "assets/gameover-01.png");
+    this.load.image("endingpage", "assets/ending-01.png");
     this.load.image('farming_fishing','assets/farming_fishing.png');
     this.load.image('forest_tiles','assets/forest_tiles.png');
     this.load.image('villageimg','assets/village32x32.png');
     this.load.image("cityImg", "assets/City-01.png");
+    this.load.image("textImg", "assets/nextlevel.png");
+    this.load.image("text2Img", "assets/nextlevel2.png");
+    this.load.audio('bgm', 'assets/bgm.mp3');
+    this.load.audio('collect', 'assets/collect.wav');
+    this.load.audio('hit', 'assets/hit.wav');
+    
+
 
     this.load.image('dog1','assets/dog.png')
     this.load.image('dog2','assets/dog2.png')
@@ -21,6 +31,7 @@ preload() {
     this.load.image('cow','assets/cow.png')
     this.load.image('cow2','assets/cow2.png')
     this.load.spritesheet('enemy','assets/enemy.png',{frameWidth:32,frameHeight: 32})
+    
     // simple coin image
     // this.load.image('coin', 'assets/coinGold.png');
     // this.playeranimations
@@ -34,9 +45,12 @@ preload() {
 }
 
 create() {
+    this.bgm= this.sound.add("bgm", {loop:true}).setVolume(0.2)
+    this.bgm.play();
 
-    this.add.text(10, 10, 'Scene', { font: '24px Courier', fill: '#FFFF00' });
-    this.add.text(10, 34, 'Click or space to continue', { font: '24px Courier', fill: '#FFFF00' });
+    this.add.image(320,320,"mainpage")
+    // this.add.text(10, 10, 'Scene', { font: '24px Courier', fill: '#FFFF00' });
+    this.add.text(100, 550, 'Click or space to continue', { font: '30px Courier', fill: '#000000' });
 
     var spaceDown = this.input.keyboard.addKey('SPACE');
         

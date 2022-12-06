@@ -3,6 +3,7 @@ class world1 extends Phaser.Scene {
     super({
       key: "world1",
     });
+    this.animalCount = 3;
 
     // Put global variable here
   }
@@ -21,11 +22,21 @@ class world1 extends Phaser.Scene {
   create() {
     console.log("*** world scene");
 
+    
+    
+    this.Collectanimal_snd= this.sound.add("collect")
+    this.overlapplayer_snd= this.sound.add("hit")
+    // this.time.addEvent({
+    //  delay:500,
+    //  callback: updateInventory,
+    //  callbackScope:this,
+    //  loop:false,
+    // })
     //Step 3 - Create the map from main
     //let map = this.make.tilemap({ key: "world1" });
 
     let map = this.make.tilemap({ key: "world1" })
-
+   
     // Step 4 Load the game tiles
     // 1st parameter is name in Tiled,
     // 2nd parameter is key in Preload
@@ -53,11 +64,10 @@ class world1 extends Phaser.Scene {
     this.groundLayer = map.createLayer("groundLayer",tilesArray,0,0);
     this.treeLayer = map.createLayer("treeLayer",tilesArray,0,0);
     this.houseLayer = map.createLayer("houseLayer",tilesArray,0,0);
-  
+   
+   
 
-    
-
-
+    this.add.image(445,520,'textImg').setScale(2);
     // Add main player here with physics.add.sprite
 
 
@@ -103,7 +113,15 @@ this.physics.add.collider(this.player,this.treeLayer);
 
 
 
+this.animalText = this.add.text(32, 32, this.animalCount, {
+  fontSize: '50px',
+  fill: '#ffffff'
+  });
 
+
+this.animalText.setScrollFactor(0);
+this.animalText.visible = true;
+   // fix the text to the camera
     // Add time event / movement here
 
     // get the tileIndex number in json, +1
@@ -130,6 +148,20 @@ window.player = this.player
   callbackScope: this,
   loop:false,
   });
+
+  this.time.addEvent({
+    delay: 0,
+    callback: this.moveDownUp,
+    callbackScope: this,
+    loop: false,
+  });
+  this.time.addEvent({
+    delay: 0,
+    callback: this.moveDownUp2,
+    callbackScope: this,
+    loop: false,
+  });
+
   //   // Color of non-colliding tiles
 
   //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
@@ -140,10 +172,16 @@ window.player = this.player
   } /////////////////// end of create //////////////////////////////
 
   update() {
-    if(this.player.x > 270 && this.player.x < 391 && this.player.y < 33){
+    if(this.player.x > 270 && this.player.x < 391 && this.player.y < 33 && window.item == 3 ){
     console.log("world2")
     this.world2();
     }
+    // if (window.item == 0) {
+    //   (this.player.x > 270 && this.player.x < 391 && this.player.y < 33) ;{
+    //     console.log("world2")
+    //     this.world2()
+    //     }
+    // }
     
     if (this.cursors.left.isDown) {
 
@@ -236,20 +274,39 @@ overlap1() {
   console.log("enemyPoint overlap player")
   //lose a life
   //shake the camera
+  this.animalCount = 3;
+  window.item = 0
   this.cameras.main.shake(500);
-  this.scene.start("gameover")
+  this.scene.start("world1")
+
+  this.overlapplayer_snd.play()
+  return false;
 }
 overlap2() {
   console.log("enemyPoint overlap player")
   //lose a life
   //shake the camera
+  this.animalCount = 3;
+  window.item = 0
+
   this.cameras.main.shake(500);
-  this.scene.start("gameover")
+  this.scene.start("world1")
+
+  this.overlapplayer_snd.play()
+  return false;
 }
 collect1 (player, itemPoint1)
 {
     itemPoint1.disableBody(true, true);
+    window.item ++
+    // updateInventory.call(this)
+    
+    this.animalCount -= 1; 
+    this.animalText.setText(this.animalCount);
 
+    this.Collectanimal_snd.play()
+    itemPoint1.disableBody(true,true);
+    return false;
     //  Add and update the score
     // score += 10;
     // scoreText.setText('Score: ' + score);
@@ -267,7 +324,15 @@ collect1 (player, itemPoint1)
     collect2 (player, itemPoint2)
     {
         itemPoint2.disableBody(true, true);
-    
+        window.item ++
+   
+        this.animalCount -= 1;
+        this.animalText.setText(this.animalCount);
+
+        this.Collectanimal_snd.play()
+        itemPoint2.disableBody(true,true);
+        return false;
+  
         //  Add and update the score
         // score += 10;
         // scoreText.setText('Score: ' + score);
@@ -285,7 +350,15 @@ collect1 (player, itemPoint1)
         collect3 (player, itemPoint3)
 {
     itemPoint3.disableBody(true, true);
+    window.item ++
+  
+    this.animalCount -= 1;
+    this.animalText.setText(this.animalCount);
 
+    this.Collectanimal_snd.play()
+    itemPoint3.disableBody(true,true);
+    return false;
+ 
     //  Add and update the score
     // score += 10;
     // scoreText.setText('Score: ' + score);
@@ -300,8 +373,42 @@ collect1 (player, itemPoint1)
     //     });
     //   }
     }
+
+    moveDownUp() {
+      console.log("moveDownUp");
+      this.tweens.timeline({
+        targets: this.enemyPoint1,
+        ease: "Linear",
+        loop: -1, // loop forever
+        duration: 3000,
+        tweens: [
+          {
+            y: 280,
+          },
+          {
+            y: 32,
+          },
+        ],
+      });
+    }
  
-gameOver(){
-  this.scene.start("gameOver")
-}
+    moveDownUp2() {
+      console.log("moveDownUp");
+      this.tweens.timeline({
+        targets: this.enemyPoint2,
+        ease: "Linear",
+        loop: -1, // loop forever
+        duration: 3000,
+        tweens: [
+          {
+            y: 660,
+          },
+          {
+            y: 930,
+          },
+        ],
+      });
+    }
+
+
 } //////////// end of class world ////////////////////////

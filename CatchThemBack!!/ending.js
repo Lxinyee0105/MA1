@@ -21,8 +21,9 @@ class ending extends Phaser.Scene {
 
     create() {
 
-        this.add.text(10,10,'Thank for playing', {font: '24px Courier',fill:'#FFFF00'});
-        this.add.text(10,34,'Click or space to continue',{font: '24px Courier',fill:'#FFFF00'} );
+        this.add.image(320,320,"endingpage")
+        // this.add.text(10,10,'Thank for playing', {font: '24px Courier',fill:'#FFFF00'});
+        this.add.text(90,500,'Click or space to continue',{font: '24px Courier',fill:'#FFFF00'} );
          var spaceDown = this.input.keyboard.addKey('SPACE');
 
         // console.log('*** main scene');

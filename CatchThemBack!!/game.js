@@ -6,7 +6,7 @@
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     },
     // scale: {
@@ -19,3 +19,8 @@
 };
 
 var game = new Phaser.Game(config);
+
+window.item = 0
+window.item2 = 0
+window.item3 = 0
+window.item4 = 0

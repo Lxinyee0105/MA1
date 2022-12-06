@@ -21,8 +21,9 @@ class gameover extends Phaser.Scene {
 
     create() {
 
-        this.add.text(10,10,'Try Again', {font: '24px Courier',fill:'#FFFF00'});
-        this.add.text(10,34,'Click or space to continue',{font: '24px Courier',fill:'#FFFF00'} );
+        this.add.image(320,320,"gameoverpage")
+        // this.add.text(10,10,'Try Again', {font: '24px Courier',fill:'#FFFF00'});
+        this.add.text(100,550,'Click or space to TRY AGAIN',{font: '24px Courier',fill:'#FFFF00'} );
          var spaceDown = this.input.keyboard.addKey('SPACE');
 
         // console.log('*** main scene');

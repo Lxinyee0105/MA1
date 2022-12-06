@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="11">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="13">
  <editorsettings>
   <export target="LV1.tmj" format="json"/>
  </editorsettings>
@@ -235,13 +235,16 @@
   <object id="6" name="item1_2" x="166.667" y="424.242">
    <point/>
   </object>
-  <object id="7" name="enemy1_1" x="718.179" y="181.819">
+  <object id="7" name="enemy1_1" x="736.091" y="30.0909">
    <point/>
   </object>
   <object id="8" name="item1_3" x="254.545" y="1206.06">
    <point/>
   </object>
-  <object id="10" name="enemy1_2" x="181.818" y="836.364">
+  <object id="10" name="enemy1_2" x="172.727" y="930">
+   <point/>
+  </object>
+  <object id="12" name="text" x="334" y="10.6667">
    <point/>
   </object>
  </objectgroup>

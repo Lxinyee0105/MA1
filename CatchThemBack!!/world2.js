@@ -3,6 +3,7 @@ class world2 extends Phaser.Scene {
     super({
       key: "world2",
     });
+    this.animalCount = 4;
 
     // Put global variable here
   }
@@ -27,6 +28,8 @@ class world2 extends Phaser.Scene {
   create() {
     console.log("*** world scene");
 
+    this.Collectanimal_snd= this.sound.add("collect")
+    this.overlapplayer_snd= this.sound.add("hit")
     //Step 3 - Create the map from main
     //let map = this.make.tilemap({ key: "world1" });
 
@@ -64,7 +67,7 @@ class world2 extends Phaser.Scene {
     this.flowernplantLayer = map2.createLayer("flowernplantLayer2",tilesArray2,0,0);
     
 
-
+    this.add.image(1110,520,'textImg').setScale(2);
     // Add main player here with physics.add.sprite
     
 
@@ -106,6 +109,14 @@ this.weilanLayer.setCollisionByExclusion(-1, true);
 
 this.physics.add.collider(this.player,this.weilanLayer);
 
+this.animalText = this.add.text(32, 32, this.animalCount, {
+  fontSize: '50px',
+  fill: '#ffffff'
+  });
+
+
+this.animalText.setScrollFactor(0);
+this.animalText.visible = true;
 
 
 this.timedEvent = this.time.addEvent({
@@ -115,6 +126,19 @@ callbackScope: this,
 loop:false,
 });
 
+this.time.addEvent({
+  delay: 0,
+  callback: this.moveRightLeft,
+  callbackScope: this,
+  loop: false,
+});
+
+this.time.addEvent({
+  delay: 0,
+  callback: this.moveRightLeft2,
+  callbackScope: this,
+  loop: false,
+});
 
     // Add time event / movement here
 
@@ -134,11 +158,20 @@ loop:false,
   } /////////////////// end of create //////////////////////////////
 
   update() {
-    if(this.player.x > 945 && this.player.x < 1080 && this.player.y < 34){
+    if(this.player.x > 945 && this.player.x < 1080 && this.player.y < 34 && window.item2 == 4){
       console.log("world3")
       this.world3();
     }
+    // if (window.item == 0) {
+    //   (this.player.x > 945 && this.player.x < 1080 && this.player.y < 34 ) ;{
+    //     console.log("world3")
+    //     this.world3()
+    //     }
+    // }
 
+
+
+    
     if (this.cursors.left.isDown) {
 
       this.player.body.setVelocityX(-200);
@@ -189,26 +222,47 @@ loop:false,
 world3 (player,tile) {
   console.log("world3 function")
   this.scene.start("world3")
+  
 } 
 
 overlap3() {
   console.log("enemyPoint overlap player")
   //lose a life
   //shake the camera
+
+  this.animalCount = 4;
+  window.item2 = 0
+
   this.cameras.main.shake(500);
-  this.scene.start("gameover")
+  this.scene.start("world2")
+
+  this.overlapplayer_snd.play()
+  return false;
 }
 overlap4() {
   console.log("enemyPoint overlap player")
   //lose a life
   //shake the camera
+  this.animalCount = 4;
+  window.item2 = 0
+
   this.cameras.main.shake(500);
-  this.scene.start("gameover")
+  this.scene.start("world2")
+
+  this.overlapplayer_snd.play()
+  return false;
 }
 collect4 (player, itemPoint4)
 {
     itemPoint4.disableBody(true, true);
+    window.item2 ++
 
+    this.animalCount -= 1; 
+    this.animalText.setText(this.animalCount);
+   
+    this.Collectanimal_snd.play()
+    itemPoint4.disableBody(true, true);
+    return false;
     //  Add and update the score
     // score += 10;
     // scoreText.setText('Score: ' + score);
@@ -226,7 +280,14 @@ collect4 (player, itemPoint4)
     collect5 (player, itemPoint5)
     {
         itemPoint5.disableBody(true, true);
-    
+        window.item2 ++
+       
+        this.animalCount -= 1; 
+        this.animalText.setText(this.animalCount);
+
+        this.Collectanimal_snd.play()
+        itemPoint5.disableBody(true, true);
+        return false;
         //  Add and update the score
         // score += 10;
         // scoreText.setText('Score: ' + score);
@@ -244,7 +305,14 @@ collect4 (player, itemPoint4)
         collect6 (player, itemPoint6)
 {
     itemPoint6.disableBody(true, true);
+    window.item2 ++
+  
+    this.animalCount -= 1; 
+    this.animalText.setText(this.animalCount);
 
+    this.Collectanimal_snd.play()
+    itemPoint6.disableBody(true, true);
+    return false;
     //  Add and update the score
     // score += 10;
     // scoreText.setText('Score: ' + score);
@@ -262,7 +330,14 @@ collect4 (player, itemPoint4)
     collect7 (player, itemPoint7)
 {
     itemPoint7.disableBody(true, true);
+    window.item2 ++
+ 
+    this.animalCount -= 1; 
+    this.animalText.setText(this.animalCount);
 
+    this.Collectanimal_snd.play()
+    itemPoint7.disableBody(true, true);
+    return false;
     //  Add and update the score
     // score += 10;
     // scoreText.setText('Score: ' + score);
@@ -276,6 +351,40 @@ collect4 (player, itemPoint4)
 
     //     });
     //   }
+    }
+    moveRightLeft() {
+      console.log("moveRightLeft");
+      this.tweens.timeline({
+        targets: this.enemyPoint3,
+        loop: -1, // loop forever
+        ease: "Linear",
+        duration: 4000,
+        tweens: [
+          {
+            x: 1070,
+          },
+          {
+            x: 600,
+          },
+        ],
+      });
+    }
+    moveRightLeft2() {
+      console.log("moveRightLeft");
+      this.tweens.timeline({
+        targets: this.enemyPoint4,
+        loop: -1, // loop forever
+        ease: "Linear",
+        duration: 2000,
+        tweens: [
+          {
+            x: 1230,
+          },
+          {
+            x: 800,
+          },
+        ],
+      });
     }
 //////////// end of class world ////////////////////////
 }

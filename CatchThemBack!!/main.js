@@ -22,7 +22,7 @@ class main extends Phaser.Scene {
     create() {
 
         console.log('*** main scene');
-
+        this.add.image(320,320,"mainpage")
         // Add any sound and music here
         // ( 0 = mute to 1 is loudest )
         //this.music = this.sound.add('bgMusic').setVolume(0.3) // 10% volume
@@ -41,7 +41,6 @@ class main extends Phaser.Scene {
         // On spacebar event, call the world scene        
         spaceDown.on('down', function () {
             console.log('Jump to rule scene');
-ss
             this.scene.start('rule',
                 // Optional parameters
                 {
@@ -72,7 +71,7 @@ ss
                 
 
         // Add any text in the main page
-        this.add.text(90, 600, 'Press spacebar to continue', {
+        this.add.text(100, 550, 'Press spacebar to Playagain', {
             font: '30px Courier',
             fill: '#FFFFFF'
         });

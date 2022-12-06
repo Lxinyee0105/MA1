@@ -21,8 +21,10 @@ class rule extends Phaser.Scene {
 
     create() {
 
-        this.add.text(10,10,'howtoplay', {font: '24px Courier',fill:'#FFFF00'});
-        this.add.text(10,34,'Click or space to continue',{font: '24px Courier',fill:'#FFFF00'} );
+        this.add.image(320,320,"rulepage")
+
+        // this.add.text(10,10,'howtoplay', {font: '24px Courier',fill:'#FFFF00'});
+        this.add.text(100,30,'Click or space to continue',{font: '24px Courier',fill:'#ffffff'} );
          var spaceDown = this.input.keyboard.addKey('SPACE');
 
         // console.log('*** main scene');
