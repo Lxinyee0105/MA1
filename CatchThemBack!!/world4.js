@@ -3,7 +3,7 @@ class world4 extends Phaser.Scene {
     super({
       key: "world4",
     });
-    this.animalCount = 0;
+    this.animalCount = 4;
     // Put global variable here
   }
 
@@ -254,8 +254,8 @@ this.time.addEvent({
     //   }
       if (window.item == 4) {
         (this.player.x > 789 && this.player.x < 915 && this.player.y > 2194 ) ;{
-          console.log("world2")
-          this.world2()
+          console.log("ending")
+          this.ending()
           }
       }
 
@@ -314,7 +314,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -328,7 +328,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -342,7 +342,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -356,7 +356,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -370,7 +370,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -383,7 +383,7 @@ this.time.addEvent({
     console.log("enemyPoint overlap player")
     //lose a life
     //shake the camera
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -396,7 +396,7 @@ this.time.addEvent({
     console.log("enemyPoint overlap player")
     //lose a life
     //shake the camera
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -409,7 +409,7 @@ this.time.addEvent({
     console.log("enemyPoint overlap player")
     //lose a life
     //shake the camera
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -422,7 +422,7 @@ this.time.addEvent({
     console.log("enemyPoint overlap player")
     //lose a life
     //shake the camera
-  this.animalCount = 0;
+  this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -435,7 +435,7 @@ this.time.addEvent({
     console.log("enemyPoint overlap player")
     //lose a life
     //shake the camera
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -449,7 +449,7 @@ this.time.addEvent({
     //lose a life
     //shake the camera
 
-    this.animalCount = 0;
+    this.animalCount = 4;
     window.item4 = 0
 
     this.cameras.main.shake(500);
@@ -465,7 +465,7 @@ this.time.addEvent({
     itemPoint11.disableBody(true, true);
     window.item4 ++
     
-    this.animalCount += 1; 
+    this.animalCount -= 1; 
     this.animalText.setText(this.animalCount);
 
     this.Collectanimal_snd.play()
@@ -476,7 +476,7 @@ this.time.addEvent({
     itemPoint12.disableBody(true, true);
     window.item4 ++
   
-    this.animalCount += 1; 
+    this.animalCount -= 1; 
     this.animalText.setText(this.animalCount);
 
     this.Collectanimal_snd.play()
@@ -487,7 +487,7 @@ this.time.addEvent({
         itemPoint14.disableBody(true, true);
         window.item4 ++
       
-        this.animalCount += 1; 
+        this.animalCount -= 1; 
         this.animalText.setText(this.animalCount);
 
         this.Collectanimal_snd.play()
@@ -498,7 +498,7 @@ this.time.addEvent({
             itemPoint15.disableBody(true, true);
             window.item4 ++
            
-            this.animalCount += 1; 
+            this.animalCount -= 1; 
             this.animalText.setText(this.animalCount);
 
             this.Collectanimal_snd.play()
