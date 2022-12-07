@@ -141,7 +141,7 @@ this.physics.add.collider(this.player,this.sidelayer);
 
 this.animalText = this.add.text(32, 32, this.animalCount, {
   fontSize: '30px',
-  fill: '#221C48'
+  fill: '#ffffff'
   });
 
 
