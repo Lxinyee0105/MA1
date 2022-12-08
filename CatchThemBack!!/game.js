@@ -20,7 +20,7 @@
 
 var game = new Phaser.Game(config);
 
-window.item = 0
-window.item2 = 0
-window.item3 = 0
-window.item4 = 0
+window.item = 3
+window.item2 = 4
+window.item3 = 4
+window.item4 = 4

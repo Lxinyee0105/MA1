@@ -253,7 +253,6 @@ this.time.addEvent({
     //   this.ending();
     //   }
       if (window.item == 4) {
-        (this.player.x > 789 && this.player.x < 915 && this.player.y > 2194 ) ;{
           console.log("ending")
           this.ending()
           }
