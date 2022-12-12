@@ -46,8 +46,9 @@ class gameover extends Phaser.Scene {
         // On spacebar event, call the world scene        
         spaceDown.on('down', function () {
             console.log('spacebar_next');
-
-            this.scene.start('world1',
+            window.item = 0
+            this.animalCount = 3
+            this.scene.start('preloadScene',
                 // Optional parameters
                 {
 

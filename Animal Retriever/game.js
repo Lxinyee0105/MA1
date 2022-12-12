@@ -15,12 +15,11 @@
     // },
     backgroundColor: '#000000',
     pixelArt: true,
-    scene: [preloadScene,main,rule, world1, world2,world3,world4,gameover,ending]
+    scene: [preloadScene,main,rule, world1, world2,world3,gameover,ending]
 };
 
 var game = new Phaser.Game(config);
 
-window.item = 3
-window.item2 = 4
-window.item3 = 4
-window.item4 = 4
+window.item = 0
+window.item2 = 0
+window.item3 = 0

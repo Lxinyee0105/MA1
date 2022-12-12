@@ -172,8 +172,8 @@ this.time.addEvent({
 
   update() {
     if(this.player.x < 100 && this.player.y > 32 && this.player.y < 400  && window.item3 == 4 ){
-      console.log("world4")
-      this.world4();
+      console.log("ending")
+      this.ending();
     }
     
     if (this.cursors.left.isDown) {
@@ -222,9 +222,9 @@ this.time.addEvent({
   
     }
   } /////////////////// end of update //////////////////////////////
-  world4 (player,tile) {
-    console.log("world4 function")
-    this.scene.start("world4")}
+  ending (player,tile) {
+    console.log("ending function")
+    this.scene.start("ending")}
 
     overlap5() {
       console.log("enemyPoint overlap player")
